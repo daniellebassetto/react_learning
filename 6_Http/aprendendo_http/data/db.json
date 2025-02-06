@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "name": "caneta",
+      "price": "3.50",
+      "id": 1
+    },
+    {
+      "name": "teclado",
+      "price": "1110",
+      "id": 2
+    },
+    {
+      "name": "cadeira",
+      "price": "200",
+      "id": 3
+    },
+    {
+      "id": "7519",
+      "name": "mouse",
+      "price": "115"
+    },
+    {
+      "id": "6a67",
+      "name": "notebook",
+      "price": "5000"
+    }
+  ]
+}
