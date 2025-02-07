@@ -1,43 +1,78 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
 
-// 1 - configurando router
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom"
-import Contact from './routes/Contact.jsx'
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
-// 2 - página de erro
-import ErrorPage from './routes/ErrorPage.jsx'
+// 2 - pagina de erro
+import ErrorPage from "./routes/ErrorPage";
 
-// 3 - componente base
-import Home from './routes/Home.jsx'
+// 3 - criando e configurando novas paginas
+import Contact from "./routes/Contact";
+
+// 4 - componente base
+import Home from "./routes/Home";
+
+// 9 - rotas dinâmicas
+import Product from "./routes/Product";
+
+// 10 - nested routes
+import Info from "./routes/Info";
+
+// 13 - search params
+import Search from "./routes/Search";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
-    errorElement: <ErrorPage/>,
-    // 3 - componente base
+    element: <App />,
+    errorElement: <ErrorPage />,
+    // 4 - componente base para páginas
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <Home />,
       },
       {
-        path: "/contact",
-        element: <Contact/>
-      }
-    ]
+        path: "contact",
+        element: <Contact />,
+      },
+      // 9 - rotas dinâmicas
+      {
+        path: "products/:id",
+        element: <Product />,
+      },
+      // 10 - nested routes
+      {
+        path: "products/:id/info",
+        element: <Info />,
+      },
+      // 13 - search params
+      {
+        path: "search",
+        element: <Search />,
+      },
+      // 14 - redirect
+      {
+        path: "teste",
+        element: <Navigate to="/" />,
+      },
+    ],
   },
   // {
   //   path: "contact",
-  //   element: <Contact/>
-  // }
-])
+  //   element: <Contact />,
+  // },
+]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
