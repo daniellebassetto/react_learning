@@ -17,7 +17,7 @@ export const TitleColorContextProvider = ({children}) => {
     const [state, dispatch] = useReducer(titleColorReducer, {color: "purple"});
 
     return (
-        <TitleColorContext.Provider value={{ ...state}}>
+        <TitleColorContext.Provider value={{ ...state, dispatch}}>
             {children}
         </TitleColorContext.Provider>
     )
